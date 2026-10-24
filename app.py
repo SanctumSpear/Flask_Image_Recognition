@@ -17,7 +17,7 @@ def predict_image_file():
     """Preprocess the uploaded image and render the predicted digit."""
     uploaded = request.files.get("file")
     if uploaded is None or uploaded.filename == "":
-        return render_template("result.html", err="No file uploaded.")
+        return render_template("result.html", err="File cannot be processed.")
     try:
         img = preprocess_img(uploaded.stream)
         pred = predict_result(img)
